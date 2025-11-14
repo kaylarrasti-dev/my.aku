@@ -1,0 +1,2812 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jurusan Geomatika - SMKN 5 Bandung</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            /* Warna Utama - Soft Neon */
+            --primary-neon: #4eff91;
+            --secondary-neon: #72ffa7;
+            --accent-neon: #66ffb3;
+            
+            /* Warna Pendukung - Mint Variations */
+            --teal-bright: #5fffd1;
+            --lime-green: #96ffc8;
+            --deep-green: #33cc99;
+            
+            /* Background - Modern Dark */
+            --dark-bg: #0a0f0d;
+            --darker-bg: #060906;
+            --card-bg: rgba(78, 255, 145, 0.08);
+            
+            /* Teks - Bright & Clear */
+            --text-light: #ffffff;
+            --text-dim: #acffcd;
+            
+            /* Transisi */
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Efek Glow - Soft Techno */
+            --neon-glow-primary: 0 0 20px rgba(78, 255, 145, 0.2), 0 0 40px rgba(78, 255, 145, 0.1);
+            --neon-glow-secondary: 0 0 20px rgba(114, 255, 167, 0.2), 0 0 40px rgba(114, 255, 167, 0.1);
+            --neon-glow-accent: 0 0 20px rgba(102, 255, 179, 0.2), 0 0 40px rgba(102, 255, 179, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-light);
+            background-color: var(--dark-bg);
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 0% 0%, rgba(78, 255, 145, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 100% 0%, rgba(95, 255, 209, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 100% 100%, rgba(102, 255, 179, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 0% 100%, rgba(150, 255, 200, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(78, 255, 145, 0.05) 0%, rgba(102, 255, 179, 0.05) 100%);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+            position: relative;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+            border-radius: 2px;
+            box-shadow: var(--neon-glow-primary);
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--text-dim);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button {
+            cursor: pointer;
+            border: none;
+            outline: none;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--card-bg);
+            color: var(--text-light);
+            border-radius: 30px;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        /* Gradasi Background */
+        .gradient-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary-neon), var(--secondary-neon), var(--accent-neon), var(--primary-neon));
+            background-size: 400% 400%;
+            z-index: -1;
+            animation: gradientShift 8s ease infinite;
+            opacity: 0.05;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Navbar */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-img {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-bg);
+            font-weight: bold;
+            box-shadow: var(--neon-glow-primary);
+        }
+
+        .logo-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-weight: 500;
+            position: relative;
+            color: var(--text-dim);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-neon);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.4)), url('./before.jpg') no-repeat center center;
+            background-size: 100% auto;
+            background-position: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon), var(--accent-neon), var(--primary-neon));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+            color: var(--text-light);
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--darker-bg);
+            position: relative;
+        }
+
+        .about-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 80px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .about-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .about-img {
+            flex: 1;
+            height: 300px;
+            background: var(--card-bg);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-neon);
+            font-size: 4rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), var(--neon-glow-primary);
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        /* make images inside about-img fill the box nicely */
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            display: block;
+        }
+
+        .about-content {
+            flex: 1;
+            padding: 0 40px;
+        }
+
+        .about-content h3 {
+            color: var(--primary-neon);
+            margin-bottom: 20px;
+        }
+
+        /* Skills Section */
+            .skills-section {
+                background-color: var(--darker-bg);
+                padding: 40px 0;
+            }
+
+            .skills-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 40px;
+                margin-top: 40px;
+                max-width: 1200px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .skills-grid > div {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: var(--transition);
+                position: relative;
+                padding-left: 60px;
+            }
+
+            .skills-grid > div.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .skills-grid h3 {
+                color: var(--primary-neon);
+                font-size: 1.3rem;
+                margin-bottom: 15px;
+                font-weight: 600;
+                letter-spacing: 0.5px;
+            }
+
+            .skills-grid p {
+                color: var(--text-dim);
+                line-height: 1.6;
+                font-size: 0.95em;
+            }
+            
+            .skill-icon {
+                font-size: 2rem;
+                color: var(--primary-neon);
+                position: absolute;
+                left: 0;
+                top: 0;
+                opacity: 0.9;
+                transition: all 0.3s ease;
+            }
+
+            .skills-grid > div:hover .skill-icon {
+                transform: scale(1.1);
+                opacity: 1;
+                color: #fff;
+                text-shadow: 0 0 15px var(--primary-neon);
+            }        /* Learning Areas Section - Digabung */
+        .learning-section {
+            background-color: var(--darker-bg);
+            padding: 40px 0;
+        }
+
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            margin: 40px auto;
+            max-width: 1400px;
+            padding: 0 20px;
+            perspective: 1000px;
+        }
+
+        /* Make learning cards match the formal, compact style used by career cards */
+        .learning-card {
+            background: linear-gradient(180deg, rgba(78,255,145,0.02), rgba(0,0,0,0.02));
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            opacity: 0;
+            transform: translateY(12px);
+            border: 1px solid rgba(78,255,145,0.06);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 240px;
+            background-clip: padding-box;
+        }
+
+        .learning-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .learning-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 26px 60px rgba(0,0,0,0.6);
+            border-color: rgba(78,255,145,0.12);
+        }
+
+        .learning-img {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        /* style icon to look like career icon box */
+        .learning-img i {
+            width: 64px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon));
+            color: var(--dark-bg);
+            box-shadow: 0 6px 18px rgba(78,255,145,0.12), var(--neon-glow-primary);
+        }
+
+        .learning-content {
+            padding: 18px;
+            flex: 1;
+        }
+
+        .learning-content h3 {
+            margin: 0 0 8px 0;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .learning-content p {
+            margin: 0;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.45;
+            opacity: 0.95;
+        }
+
+        /* Technologies Section */
+        .tech-section {
+            background-color: var(--darker-bg);
+            padding: 60px 0;
+            position: relative;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .tech-card {
+            background: linear-gradient(145deg, rgba(0, 255, 204, 0.05), rgba(0, 255, 204, 0.1));
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            border: 1px solid rgba(0, 255, 204, 0.1);
+            text-align: left;
+            padding: 30px;
+            position: relative;
+            isolation: isolate;
+        }
+
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(
+                circle at top right,
+                rgba(0, 255, 204, 0.15),
+                transparent 50%
+            );
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .tech-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .tech-card:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+
+        /* Timeline Section Styles (restored) */
+        .timeline-section {
+            background-color: var(--darker-bg);
+            padding: 80px 0;
+            position: relative;
+        }
+
+        .timeline-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, #2E8B57, #3CB371, #20B2AA);
+            box-shadow: 0 0 20px rgba(46, 139, 87, 0.3);
+            border-radius: 2px;
+            z-index: 0;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 80px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+            z-index: 1;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            justify-content: flex-end;
+            padding-right: 60px;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-left: 60px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 60px;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #3CB371, #20B2AA);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 25px rgba(60, 179, 113, 0.6);
+            z-index: 10;
+            font-size: 1.2rem;
+        }
+
+        .timeline-content {
+            width: 45%;
+            background: rgba(46, 139, 87, 0.08);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(32, 178, 170, 0.3);
+            transform: perspective(1000px) rotateY(-5deg);
+            transition: var(--transition);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            transform: perspective(1000px) rotateY(5deg);
+        }
+
+        .timeline-content:hover {
+            transform: perspective(1000px) rotateY(0deg) translateZ(20px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(32, 178, 170, 0.4);
+        }
+
+        .timeline-year {
+            font-size: 1.8rem;
+            color: #3CB371;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .timeline-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .timeline-description {
+            color: #d1d1d1;
+            line-height: 1.7;
+        }
+
+        /* Responsive Timeline */
+        @media (max-width: 768px) {
+            .timeline-container::before {
+                left: 30px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+                padding-left: 80px !important;
+                padding-right: 0 !important;
+            }
+            
+            .timeline-content {
+                width: 100%;
+                transform: none !important;
+            }
+            
+            .timeline-content:hover {
+                transform: translateY(-10px) !important;
+            }
+            
+            .timeline-dot {
+                left: 30px;
+            }
+        }
+
+
+        /* Career Section - Modern Grid Cards */
+        .career {
+            /* match other sections: use gradient-bg overlay + dark base */
+            background-color: var(--darker-bg);
+            position: relative;
+            padding: 60px 0;
+        }
+
+        .career.gradient-bg::before {
+            /* reuse gradient overlay subtle effect consistent with site */
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(78,255,145,0.02), rgba(0,0,0,0));
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .career-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+            align-items: center;
+            padding: 0 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* center vertical connector line */
+        .career-list::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 24px;
+            bottom: 24px;
+            width: 2px;
+            background: linear-gradient(180deg, rgba(78,255,145,0.12), rgba(78,255,145,0.04));
+            transform: translateX(-50%);
+            z-index: 0;
+            border-radius: 2px;
+        }
+
+        /* interlocking card effect: cards have small offsets and pseudo-elements that connect adjacent cards */
+        .career-item {
+            background: linear-gradient(180deg, rgba(78,255,145,0.03), rgba(78,255,145,0.01));
+            border-radius: 12px;
+            padding: 24px 22px;
+            display: flex;
+            flex-direction: row;
+            gap: 18px;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+            opacity: 0;
+            transform: translateY(12px);
+            border: 1px solid rgba(78,255,145,0.06);
+            position: relative;
+            overflow: visible;
+            width: 100%;
+        }
+
+        /* Zig-zag: alternate rows reverse direction */
+        .career-list > .career-item:nth-child(odd) {
+            grid-column: 1 / 2;
+            justify-self: start;
+            transform: translate(-40px, 12px);
+        }
+
+        .career-list > .career-item:nth-child(odd).visible {
+            transform: translateX(-40px) translateY(0);
+        }
+
+        .career-list > .career-item:nth-child(odd):hover {
+            transform: translateX(-40px) translateY(-6px);
+        }
+
+        .career-list > .career-item:nth-child(odd)::before {
+            /* horizontal connector toward center */
+            content: '';
+            position: absolute;
+            right: -20px;
+            top: 50%;
+            width: 20px;
+            height: 2px;
+            background: rgba(78,255,145,0.12);
+            transform: translateY(-50%);
+            z-index: -1;
+            border-radius: 2px;
+        }
+
+        .career-list > .career-item:nth-child(even) {
+            grid-column: 2 / 3;
+            justify-self: end;
+            text-align: right;
+            flex-direction: row-reverse;
+            transform: translate(40px, 12px);
+        }
+
+        .career-list > .career-item:nth-child(even).visible {
+            transform: translateX(40px) translateY(0);
+        }
+
+        .career-list > .career-item:nth-child(even):hover {
+            transform: translateX(40px) translateY(-6px);
+        }
+
+        .career-list > .career-item:nth-child(even)::before {
+            /* horizontal connector toward center */
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            width: 20px;
+            height: 2px;
+            background: rgba(78,255,145,0.12);
+            transform: translateY(-50%);
+            z-index: -1;
+            border-radius: 2px;
+        }
+
+        /* make cards visually connect by overlapping small rounded tabs */
+        .career-item::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 20px;
+            width: calc(100% - 40px);
+            height: 24px;
+            border-radius: 12px;
+            background: rgba(0,0,0,0.02);
+            filter: blur(6px);
+            z-index: -1;
+            opacity: 0.6;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .career-item:hover::after {
+            transform: translateY( -4px );
+            opacity: 0.9;
+        }
+
+        .career-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .career-item:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 26px 60px rgba(0,0,0,0.6), 0 0 18px rgba(78,255,145,0.06);
+            border-color: rgba(78,255,145,0.14);
+        }
+
+        .career-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            color: var(--dark-bg);
+            background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon));
+            box-shadow: 0 6px 18px rgba(78,255,145,0.08);
+            align-self: flex-start;
+        }
+
+        .career-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .career-content h3 {
+            margin: 0;
+            color: var(--text-light);
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: 0.2px;
+            position: relative;
+            padding-bottom: 6px;
+        }
+
+        .career-content p {
+            margin: 0;
+            color: var(--text-dim);
+            font-size: 0.98rem;
+            line-height: 1.6;
+            max-width: 46ch;
+            opacity: 0.95;
+        }
+
+        /* small underline/accent below title */
+        .career-content h3::after {
+            content: '';
+            display: block;
+            width: 48px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+            border-radius: 2px;
+            margin-top: 8px;
+            opacity: 0.9;
+        }
+
+        /* Align content for zigzag: left for odd, right for even */
+        .career-list > .career-item:nth-child(odd) .career-content {
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .career-list > .career-item:nth-child(even) .career-content {
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        /* Make sure icon spacing matches alignment */
+        .career-list > .career-item:nth-child(odd) .career-icon {
+            margin-left: 0;
+            margin-right: 8px;
+        }
+
+        .career-list > .career-item:nth-child(even) .career-icon {
+            margin-right: 0;
+            margin-left: 8px;
+        }
+
+        /* Special: remove bottom pseudo-element for last row to avoid visual overflow */
+        .career-list > .career-item:nth-last-child(-n+3)::after {
+            display: none;
+        }
+
+        /* Tools Section */
+        .tools {
+            background-color: var(--darker-bg);
+        }
+
+        /* Styles for the front tools overview banner */
+        .tool-overview { display: block; text-decoration: none; }
+        .tool-overview-card {
+            display: block;
+            width: 100%;
+            /* keep this as a fallback style for non-banner usages */
+            border-radius: 12px;
+            background: linear-gradient(135deg, rgba(78,255,145,0.04), rgba(0,0,0,0.03));
+            border: 1px solid rgba(78,255,145,0.08);
+            box-shadow: 0 12px 36px rgba(0,0,0,0.5);
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
+        }
+        .tool-overview-card:hover { transform: translateY(-6px); box-shadow: 0 200px 50px rgba(0,0,0,0.6), var(--neon-glow-secondary); }
+        .tool-overview-card .tool-content h3 { letter-spacing: 0.4px }
+
+        /* Banner variant: no card visuals — flat full-width banner without border, shadow, or rounded corners */
+        .tool-overview-banner {
+            display: block;
+            width: 100%;
+            background: transparent; /* blend with section background */
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+            padding: 0; /* padding handled by inner content */
+        }
+
+        /* center the inner content of the full-bleed overview and constrain its max width
+           so the banner stretches edge-to-edge while the text stays readable and the CTA aligns */
+        .tool-overview-card .tool-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 40px;
+            gap: 20px;
+        }
+
+        .tool-overview-banner .tool-content {
+            /* banner inner content — align left but keep constrained width */
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 28px 40px;
+            gap: 28px;
+        }
+
+        .tool-overview-card .tool-content .overview-text {
+            flex: 1 1 60%;
+            align-items: center;
+            min-width: 0; /* allow truncation */
+        }
+
+        .tool-overview-card .tool-content .overview-text p {
+            margin: 6px 0 0;
+            align-items: center;
+            color: var(--text-dim);
+            font-size: 1rem;
+        }
+
+        .tool-overview-card .overview-cta {
+            padding: 10px 18px;
+            border-radius: 100px;
+            background: linear-gradient(90deg,var(--primary-neon),var(--secondary-neon));
+            color: #04200f;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0 100px 24px rgba(34,139,34,0.08);
+            cursor: pointer;
+        }
+
+        /* make the overview banner span the full viewport width while staying centered
+           it uses the full-bleed helper class applied to the overview card */
+        .tool-overview-card.full-bleed {
+            width: 100vw;
+            max-width: none;
+            margin-left: calc(50% - 50vw);
+            margin-right: calc(50% - 50vw);
+            border-radius: 0.5rem; /* keep slightly rounded corners */
+            padding: 18px 0;
+            box-shadow: 0 24px 70px rgba(0,0,0,0.6);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+            opacity: 0;
+            transform: translateY(20px);
+            cursor: pointer;
+            border: 1px solid rgba(57, 255, 20, 0.1);
+        }
+
+        .tool-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3), var(--neon-glow-secondary);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+        }
+
+        .tool-img {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(57, 255, 20, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-neon);
+            font-size: 3rem;
+        }
+
+        .tool-content {
+            padding: 20px;
+        }
+
+        .tool-content h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-neon);
+        }
+
+        /* Teachers Section */
+        .teachers {
+            background-color: var(--darker-bg);
+        }
+
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 columns -> for 10 teachers, 2 even rows */
+            gap: 24px;
+            align-items: start;
+        }
+
+        @media (max-width: 1200px) {
+            .teachers-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+
+        @media (max-width: 900px) {
+            .teachers-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        @media (max-width: 600px) {
+            .teachers-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        /* Teacher cards: match learning-card / career-item style (formal & tidy) */
+        .teacher-card {
+            background: linear-gradient(180deg, rgba(78,255,145,0.02), rgba(0,0,0,0.02));
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 1px solid rgba(78,255,145,0.06);
+            display: flex;
+            flex-direction: column;
+            min-height: 240px;
+            position: relative;
+        }
+
+        /* remove overlay text that covered teacher images */
+        .teacher-card::after {
+            display: none !important;
+        }
+
+        .teacher-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 26px 60px rgba(0,0,0,0.6);
+            border-color: rgba(78,255,145,0.12);
+        }
+
+        /* show a small tooltip on hover to indicate the card is clickable */
+        .teacher-card::before {
+            content: 'Klik untuk biodata';
+            position: absolute;
+            left: 50%;
+            bottom: 12px;
+            transform: translateX(-50%) translateY(6px);
+            background: rgba(0,0,0,0.65);
+            color: #fff;
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            z-index: 8;
+        }
+
+        .teacher-card:hover::before { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+        .teacher-card:hover::after {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* teacher image container set to portrait 9:16 ratio and image fills the box */
+        .teacher-img {
+            width: 100%;
+            aspect-ratio: 9 / 16; /* vertical portrait */
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(180deg, rgba(78,255,145,0.1), rgba(0,0,0,0.1));
+        }
+
+        .teacher-img img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .teacher-card:hover .teacher-img img {
+            transform: scale(1.05);
+        }
+
+        /* hide center icon that overlays teacher photos */
+        .teacher-img i {
+            display: none !important;
+        }
+
+        .teacher-content {
+            padding: 18px;
+            text-align: center;
+            flex: 1;
+        }
+
+        .teacher-content h3 {
+            margin: 0 0 8px 0;
+            color: var(--text-light);
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .teacher-content p {
+            margin: 0;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.4;
+            opacity: 0.95;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--card-bg);
+            width: 90%;
+            max-width: 600px;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .close-modal:hover {
+            color: var(--primary-neon);
+        }
+
+        .modal-body {
+            margin-top: 20px;
+        }
+
+        .modal-body p {
+            margin-bottom: 10px;
+        }
+
+        .teacher-detail-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--primary-neon), var(--accent-neon));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-bg);
+            font-size: 3rem;
+            box-shadow: var(--neon-glow-accent);
+        }
+
+        /* Portrait used inside the teacher modal — shows same crop as front card (portrait 9:16) */
+        .teacher-detail-photo {
+            width: 180px;
+            aspect-ratio: 9 / 16;
+            margin: 0 auto 18px;
+            overflow: hidden;
+            border-radius: 8px;
+            background: linear-gradient(180deg, rgba(78,255,145,0.04), rgba(0,0,0,0.04));
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        .teacher-detail-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Utility to remove neon/glow for specific elements */
+        .no-glow {
+            box-shadow: none !important;
+            /* keep background but remove glow; if you also want to remove gradient, set background to var(--card-bg) */
+        }
+
+        /* Activities Section - Diperbesar */
+        /* Tools overview banner - centered text with CTA button directly under the heading */
+        .tool-overview-banner {
+            width: 100%;
+            display: block;
+            padding: 12px 0;
+            background: transparent; /* keep background consistent with section */
+        }
+
+        .tool-overview-banner .tool-content {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 18px;
+            text-align: center;
+            padding: 6px 20px;
+        }
+
+        .tool-overview-banner .overview-text p {
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-light);
+            max-width: 760px;
+        }
+
+        .overview-cta { 
+            min-width: 220px;
+            display: inline-block;
+        }
+
+        @media (max-width: 600px) {
+            .tool-overview-banner .tool-content { padding: 12px; }
+            .overview-cta { min-width: 180px; }
+        }
+        .tools-cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 8px; /* keep CTA close under the heading */
+        }
+        .activities {
+            background-color: var(--darker-bg);
+        }
+
+        .activities-slider {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+            border: 1px solid rgba(0, 255, 136, 0.12);
+            height: auto;
+            padding: 20px 0;
+        }
+
+        /* fullscreen button */
+        .slider-fullscreen {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0,0,0,0.5);
+            color: var(--text-light);
+            border: none;
+            width: 42px;
+            height: 42px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 40;
+            transition: var(--transition);
+        }
+
+        .slider-fullscreen:hover { background: rgba(0,0,0,0.7); color: var(--primary-neon); }
+
+        /* fullscreen layout */
+        .activities-slider.fullscreen {
+            position: fixed !important;
+            inset: 0;
+            width: 100vw !important;
+            height: 100vh !important;
+            max-width: 100vw !important;
+            padding: 40px 20px !important;
+            border-radius: 0 !important;
+            z-index: 9999 !important;
+            background: linear-gradient(180deg, rgba(0,0,0,0.95), rgba(0,0,0,0.95));
+        }
+
+        .activities-slider.fullscreen .activity-img {
+            aspect-ratio: 16 / 9; /* wider visual in fullscreen for better presentation */
+            border-radius: 6px;
+        }
+
+        .activities-slider.fullscreen .activity-content { display: none; }
+
+        .slides-container {
+            display: flex;
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+            height: auto;
+            align-items: center;
+        }
+
+        .activity-slide {
+            min-width: 100%;
+            position: relative;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .activity-img {
+            width: 100%;
+            aspect-ratio: 4 / 3; /* keep 4:3 ratio */
+            overflow: hidden;
+            border-radius: 10px;
+            background: linear-gradient(135deg, rgba(0, 255, 136, 0.04), rgba(57, 255, 20, 0.02));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .activity-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .activity-content {
+            padding: 18px 30px;
+            text-align: center;
+            background: transparent;
+        }
+
+        .activity-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-neon);
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 12px;
+            pointer-events: auto;
+            opacity: 0.8;
+        }
+
+        .slider-dots .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+        }
+
+        .slider-dots .dot.active {
+            background: linear-gradient(90deg, var(--primary-neon), var(--secondary-neon));
+            box-shadow: var(--neon-glow-primary);
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--text-light);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--primary-neon);
+            box-shadow: var(--neon-glow-primary);
+        }
+
+        .slider-arrow.prev {
+            left: 15px;
+        }
+
+        .slider-arrow.next {
+            right: 15px;
+        }
+
+        /* Location Section */
+        .location {
+            background-color: var(--darker-bg);
+        }
+
+        .location-content {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .map-container {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            height: 400px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--darker-bg);
+            color: var(--text-light);
+            padding: 50px 0 20px;
+            border-top: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-neon);
+        }
+
+        .instagram-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            color: var(--primary-neon);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .instagram-link:hover {
+            transform: translateY(-3px);
+        }
+
+        .team-link {
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 20px;
+        }
+
+        .team-link:hover {
+            color: var(--primary-neon);
+        }
+
+        .copyright {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Team Modal */
+        .team-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .team-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .team-modal-content {
+            background: var(--card-bg);
+            width: 90%;
+            max-width: 1000px;
+            border-radius: 10px;
+            padding: 30px;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .team-modal.active .team-modal-content {
+            transform: scale(1);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+            padding: 20px;
+            background: var(--darker-bg);
+            border-radius: 10px;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        .member-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-neon), var(--secondary-neon));
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-bg);
+            font-size: 2rem;
+            box-shadow: var(--neon-glow-primary);
+        }
+
+        .member-role {
+            color: var(--primary-neon);
+            font-weight: 500;
+            margin: 10px 0;
+        }
+
+        .member-motto {
+            font-style: italic;
+            margin-top: 10px;
+            color: var(--text-dim);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .teachers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .activities-slider {
+                height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--darker-bg);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                border-right: 1px solid rgba(0, 255, 136, 0.2);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .about-item, .about-item:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-content {
+                padding: 20px 0;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skill-card {
+                flex-direction: row;
+                padding: 20px;
+            }
+            
+            .teachers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .activity-img {
+                height: 250px;
+            }
+            
+            .activities-slider {
+                height: 450px;
+            }
+            
+            .career-item {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+                width: 100%;
+            }
+            
+            .career-icon {
+                min-width: auto;
+                margin: 0 auto;
+            }
+
+            /* disable zigzag on mobile */
+            .career-list {
+                grid-template-columns: 1fr;
+                justify-items: center;
+            }
+
+            .career-list > .career-item:nth-child(even),
+            .career-list > .career-item:nth-child(odd) {
+                grid-column: auto;
+                justify-self: stretch;
+                flex-direction: column;
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navbar -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-img no-glow">
+                        <img src="logo.webp" alt="Logo SMKN 5 Bandung" />
+                    </div>
+                    <div class="logo-text">Geomatika SMKN 5</div>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#career">Karir</a></li>
+                    <li><a href="#teachers">Guru</a></li>
+                    <li><a href="#tools">Alat</a></li>
+                    <li><a href="#activities">Kegiatan</a></li>
+                    <li><a href="#location">Lokasi</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Jurusan Geomatika – SMKN 5 Bandung</h1>
+                <p>Menguasai teknologi pemetaan untuk membangun masa depan.</p>
+                <a href="#about" class="btn">Pelajari Jurusan</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about gradient-bg" id="about">
+        <div class="container">
+            <h2>Tentang Jurusan Geomatika</h2>
+            
+                <div class="about-item">
+                <div class="about-img no-glow">
+                    <img src="sejarahh.jpg" alt="Sejarah Geomatika">
+                </div>
+                <div class="about-content">
+                    <h3>Sejarah Geomatika di SMKN 5 Bandung</h3>
+                    <p>Jurusan Geomatika SMKN 5 Bandung didirikan pada tahun 2010 sebagai respons terhadap meningkatnya kebutuhan tenaga terampil di bidang survei dan pemetaan. Dengan dukungan dari berbagai industri terkait, jurusan ini telah berkembang menjadi salah satu program keahlian unggulan di sekolah.</p>
+                    <p>Pada awalnya, jurusan ini hanya memiliki 2 ruang kelas dengan peralatan terbatas. Namun, berkat komitmen yang kuat dari para pendiri dan dukungan dari pemerintah daerah, jurusan ini kini memiliki fasilitas lengkap dengan teknologi terkini.</p>
+                </div>
+            </div>
+            
+            <div class="about-item">
+                <div class="about-img no-glow">
+                    <img src="fasilitas.jpg" alt="Bidang Pembelajaran">
+                </div>
+                <div class="about-content">
+                    <h3>Bidang Pembelajaran Geomatika</h3>
+                    <p>Kurikulum kami mencakup berbagai bidang penting dalam geomatika, termasuk survei tanah, fotogrametri, penginderaan jauh, sistem informasi geografis (SIG), pemetaan drone, dan pemodelan 3D. Siswa mendapatkan pengalaman langsung dengan teknologi terkini di bidang pemetaan.</p>
+                    <p>Kami juga mengintegrasikan pembelajaran berbasis proyek untuk memastikan siswa dapat menerapkan pengetahuan mereka dalam situasi dunia nyata. Setiap semester, siswa terlibat dalam proyek pemetaan aktual yang berkontribusi pada pengembangan masyarakat.</p>
+                </div>
+            </div>
+            
+            <!-- Learning Areas Section (Integrated) -->
+            <div class="learning-section">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--secondary-neon);">Bidang Pembelajaran Geomatika</h3>
+                <div class="learning-grid">
+                    <div class="learning-card">
+                        <div class="learning-img">
+                            <i class="fas fa-drafting-compass"></i>
+                        </div>
+                        <div class="learning-content">
+                            <h3>Survei & Pemetaan Terestris</h3>
+                            <p>Pengukuran jarak dan sudut di lapangan menggunakan total station & waterpass. Teknik pengukuran presisi untuk pemetaan topografi dan batas wilayah.</p>
+                        </div>
+                    </div>
+                    <div class="learning-card">
+                        <div class="learning-img">
+                            <i class="fas fa-helicopter"></i>
+                        </div>
+                        <div class="learning-content">
+                            <h3>Fotogrametri & Drone Mapping</h3>
+                            <p>Pengolahan citra udara menjadi peta digital & model 3D. Mengoperasikan drone untuk akuisisi data dan memprosesnya menjadi produk geospasial.</p>
+                        </div>
+                    </div>
+                    <div class="learning-card">
+                        <div class="learning-img">
+                            <i class="fas fa-map"></i>
+                        </div>
+                        <div class="learning-content">
+                            <h3>Sistem Informasi Geografis (SIG)</h3>
+                            <p>Analisis data spasial untuk perencanaan wilayah. Membuat database spasial dan melakukan analisis overlay, buffering, dan spatial query.</p>
+                        </div>
+                    </div>
+                    <div class="learning-card">
+                        <div class="learning-img">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <div class="learning-content">
+                            <h3>Penginderaan Jauh</h3>
+                            <p>Interpretasi citra satelit untuk studi lingkungan & bencana. Menggunakan data penginderaan jauh untuk pemantauan perubahan lahan dan mitigasi bencana.</p>
+                        </div>
+                    </div>
+                    <div class="learning-card">
+                        <div class="learning-img">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <div class="learning-content">
+                            <h3>Kartografi Digital</h3>
+                            <p>Mendesain peta interaktif dan visualisasi data geospasial. Membuat peta tematik dengan simbolisasi yang tepat dan layout yang informatif.</p>
+                        </div>
+                    </div>
+                    <div class="learning-card">
+                        <div class="learning-img">
+                            <i class="fas fa-mountain"></i>
+                        </div>
+                        <div class="learning-content">
+                            <h3>Geodesi & Topografi</h3>
+                            <p>Penentuan bentuk, ukuran, dan posisi bumi secara presisi tinggi. Memahami sistem referensi koordinat dan transformasi datum geodetik.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+<!----nyobaaa-->
+            <div class="skills-section">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--primary-neon);">Kemampuan yang Harus Dikuasai Lulusan Geomatika</h3>
+                <div class="skills-grid">
+                    <div>
+                        <div class="skill-icon">
+                            <i class="fas fa-satellite-dish"></i>
+                        </div>
+                        <h3>Mengoperasikan Alat Ukur Modern</h3>
+                        <p>Total Station, GPS Geodetik, Drone, dan peralatan survei terkini lainnya.</p>
+                    </div>
+                    <div>
+                        <div class="skill-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Mengolah Data Spasial</h3>
+                        <p>Menggunakan software SIG seperti ArcGIS, QGIS, dan perangkat lunak pemetaan lainnya.</p>
+                    </div>
+                    <div>
+                        <div class="skill-icon">
+                            <i class="fas fa-map-marked-alt"></i>
+                        </div>
+                        <h3>Membaca & Membuat Peta Digital</h3>
+                        <p>Membuat peta digital serta model 3D untuk berbagai keperluan.</p>
+                    </div>
+                    <div>
+                        <div class="skill-icon">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <h3>Menganalisis Citra Satelit</h3>
+                        <p>Menginterpretasi citra satelit dan foto udara untuk berbagai aplikasi.</p>
+                    </div>
+                    <div>
+                        <div class="skill-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Bekerja Lapangan dan Tim</h3>
+                        <p>Mampu bekerja di lapangan dan berkolaborasi dalam tim lintas disiplin.</p>
+                    </div>
+                    <div>
+                        <div class="skill-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Etika Profesi & Keselamatan Kerja</h3>
+                        <p>Menerapkan etika profesi dan prosedur keselamatan kerja di lapangan.</p>
+                    </div>
+                </div>
+            </div>
+                        
+            <!-- Technologies Section (Integrated) -->
+            <div class="tech-section">
+                <h3 style="text-align: center; margin-bottom: 30px; color: var(--accent-neon);">Teknologi yang Digunakan</h3>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-satellite"></i>
+                        </div>
+                        <h3>GNSS/GPS</h3>
+                        <p>Sistem navigasi satelit untuk penentuan posisi dengan akurasi tinggi.</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-helicopter"></i>
+                        </div>
+                        <h3>Drone/UAV</h3>
+                        <p>Pesawat tanpa awak untuk pemetaan udara dan akuisisi data.</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3>Software SIG</h3>
+                        <p>ArcGIS, QGIS untuk analisis dan visualisasi data spasial.</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <h3>Pemodelan 3D</h3>
+                        <p>Teknologi untuk membuat model tiga dimensi dari data spasial.</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h3>Cloud Computing</h3>
+                        <p>Pemrosesan data spasial berbasis cloud untuk skalabilitas.</p>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>Spatial Database</h3>
+                        <p>Database khusus untuk menyimpan dan mengelola data geospasial.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="about-item">
+                <div class="about-img no-glow">
+                    <img src="peran.jpg" alt="Peran Geomatika">
+                </div>
+                <div class="about-content">
+                    <h3>Peran Geomatika di Dunia Modern</h3>
+                    <p>Geomatika memainkan peran krusial dalam pembangunan infrastruktur, mitigasi bencana, perencanaan kota, pertanian presisi, dan konservasi lingkungan. Lulusan kami berkontribusi dalam berbagai sektor untuk pembangunan berkelanjutan di Indonesia.</p>
+                    <p>Dengan perkembangan teknologi digital, peran geomatika semakin penting dalam era revolusi industri 4.0. Data spasial menjadi komponen kunci dalam pengambilan keputusan di berbagai bidang, mulai dari pemerintahan hingga bisnis.</p>
+                </div>
+            </div>
+            
+            <div class="about-item">
+                <div class="about-img no-glow">
+                    <img src="bidang.jpg" alt="Fasilitas Jurusan">
+                </div>
+                <div class="about-content">
+                    <h3>Fasilitas Jurusan</h3>
+                    <p>Kami memiliki laboratorium komputer dengan perangkat lunak SIG terbaru, alat ukur modern seperti total station dan GPS geodetik, serta ruang praktik lapangan yang memadai. Siswa juga memiliki akses ke drone pemetaan dan peralatan survei terkini.</p>
+                    <p>Selain fasilitas fisik, kami juga menyediakan akses ke data satelit dan platform cloud computing untuk analisis data spasial. Kolaborasi dengan industri memungkinkan siswa untuk menggunakan teknologi terdepan dalam proses pembelajaran.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- timeline section....-->
+         <section class="timeline-section gradient-bg">
+        <div class="container">
+            <h2>Perkembangan Teknologi Geomatika</h2>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1980-an</div>
+                        <h3 class="timeline-title">Teknologi Survey Terestrial Konvensional</h3>
+                        <p class="timeline-description">Penggunaan theodolite dan waterpass sebagai alat utama survei terestrial. Pengukuran sudut dan jarak dilakukan secara manual dengan akurasi terbatas. Proses pengolahan data memerlukan waktu yang lama dengan kalkulator khusus.</p>
+                    </div>
+                    <div class="timeline-dot">🎯</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">1990-an</div>
+                        <h3 class="timeline-title">Pengenalan GPS Sipil</h3>
+                        <p class="timeline-description">Pembukaan akses GPS untuk penggunaan sipil oleh pemerintah AS. Munculnya receiver GPS dengan akurasi meter hingga desimeter. Total Station menggantikan theodolite dengan kemampuan pengukuran jarak elektronik dan penyimpanan data digital.</p>
+                    </div>
+                    <div class="timeline-dot">📡</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2000-an</div>
+                        <h3 class="timeline-title">Pengembangan GIS dan Remote Sensing</h3>
+                        <p class="timeline-description">Perkembangan pesat Sistem Informasi Geografis (GIS) dengan kemampuan analisis spasial yang lebih kompleks. Teknologi penginderaan jauh semakin maju dengan resolusi citra satelit yang lebih tinggi. GPS Real-Time Kinematic (RTK) memungkinkan akurasi sentimeter.</p>
+                    </div>
+                    <div class="timeline-dot">🗺️</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2010-an</div>
+                        <h3 class="timeline-title">Drone Mapping & LiDAR</h3>
+                        <p class="timeline-description">Revolusi pemetaan dengan drone/UAV yang memungkinkan akuisisi data udara dengan biaya rendah. Teknologi LiDAR semakin terjangkau untuk pemetaan topografi 3D. Cloud computing memungkinkan pemrosesan data spasial secara online dan kolaboratif.</p>
+                    </div>
+                    <div class="timeline-dot">🛰️</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2020-an</div>
+                        <h3 class="timeline-title">AI dalam Pemetaan & Digital Twin</h3>
+                        <p class="timeline-description">Integrasi Artificial Intelligence (AI) untuk otomatisasi interpretasi data geospasial. Konsep Digital Twin untuk membuat replika digital dari objek fisik. GNSS multi-konstelasi (GPS, GLONASS, Galileo, BeiDou) meningkatkan akurasi dan ketersediaan data posisi.</p>
+                    </div>
+                    <div class="timeline-dot">🤖</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Career Section - Layout Baru -->
+    <section class="career gradient-bg" id="career">
+        <div class="container">
+            <h2>Peluang Karir Lulusan</h2>
+            <div class="career-list">
+                <div class="career-item">
+                    <div class="career-icon">
+                        <i class="fas fa-drafting-compass"></i>
+                    </div>
+                    <div class="career-content">
+                        <h3>Surveyor</h3>
+                        <p>Bekerja di perusahaan konstruksi, pertambakan, atau pemerintah untuk melakukan pengukuran dan pemetaan lapangan.</p>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div class="career-content">
+                        <h3>Kartografer</h3>
+                        <p>Membuat dan memperbarui peta untuk berbagai keperluan, termasuk navigasi, perencanaan, dan pendidikan.</p>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="career-content">
+                        <h3>Analis SIG</h3>
+                        <p>Mengelola dan menganalisis data spasial untuk mendukung pengambilan keputusan di berbagai sektor.</p>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-icon">
+                        <i class="fas fa-satellite"></i>
+                    </div>
+                    <div class="career-content">
+                        <h3>Spesialis Penginderaan Jauh</h3>
+                        <p>Menginterpretasi citra satelit dan udara untuk pemantauan lingkungan, pertanian, dan bencana.</p>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-icon">
+                        <i class="fas fa-helicopter"></i>
+                    </div>
+                    <div class="career-content">
+                        <h3>Operator Drone</h3>
+                        <p>Mengoperasikan drone untuk akuisisi data udara dan memprosesnya menjadi produk geospasial.</p>
+                    </div>
+                </div>
+                <div class="career-item">
+                    <div class="career-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="career-content">
+                        <h3>Instruktur Geomatika</h3>
+                        <p>Mengajar dan melatih generasi berikutnya di bidang geomatika dan teknologi pemetaan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teachers Section -->
+    <section class="teachers gradient-bg" id="teachers">
+        <div class="container">
+            <h2>Guru Pengajar</h2>
+            <div class="teachers-grid">
+                <div class="teacher-card" data-teacher="0">
+                    <div class="teacher-img">
+                        <img src="pa dadan.jpg" alt="Dadan Rusdan">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="teacher-content">
+                        <h3>Dadan Rusdan</h3>
+                        <p>Kepala Konsentrasi Geomatika</p>
+                    </div>
+                </div>
+                <div class="teacher-card" data-teacher="1">
+                    <div class="teacher-img">
+                        <img src="bu osiana.jpg" alt="Osianni Pertiwi">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="teacher-content">
+                        <h3>Osianni Pertiwi, M.Pd</h3>
+                        <p>Guru Pengajar</p>
+                    </div>
+                </div>
+                <div class="teacher-card" data-teacher="2">
+                    <div class="teacher-img">
+                        <img src="pa kiki.jpg" alt="Kiki Rachmat Nugraha">
+                        <i class="fas fa-user-astronaut"></i>
+                    </div>
+                    <div class="teacher-content">
+                        <h3>Kiki Rachmat Nugraha, S.Pd</h3>
+                        <p>Guru Pengajar</p>
+                    </div>
+                </div>
+                <div class="teacher-card" data-teacher="3">
+                    <div class="teacher-img">
+                        <img src="bu ria.jpg" alt="Ria Oktriani">
+                        <i class="fas fa-user-ninja"></i>
+                    </div>
+                    <div class="teacher-content">
+                        <h3>Ria Oktriani, S.T</h3>
+                        <p>Guru Pengajar</p>
+                    </div>
+                </div>
+                <div class="teacher-card" data-teacher="4">
+                    <div class="teacher-img">
+                        <img src="bu aida.jpg" alt="Aida Nur Haqiqi">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <div class="teacher-content">
+                        <h3>Aida Nur Haqiqi, S.Pd</h3>
+                        <p>Guru Pengajar</p>
+                    </div>
+                </div>
+                <div class="teacher-card" data-teacher="5">
+                    <div class="teacher-img">
+                        <img src="pa novriyanto.jpg" alt="Novriyanto">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <div class="teacher-content">
+                        <h3>Novriyanto, S.Pd</h3>
+                        <p>Guru Pengajar</p>
+                    </div>
+                </div>
+                <div class="teacher-card" data-teacher="6">
+                    <div class="teacher-img">
+                        <img src="pa imam.jpg" alt="Imam Nurhidayat">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="teacher-content">
+                        <h3>Imam Nurhidayat, S.Pd</h3>
+                        <p>Guru Pengajar</p>
+                    </div>
+                </div>
+                <div class="teacher-card" data-teacher="7">
+                    <div class="teacher-img">
+                        <img src="bu juwita.jpg" alt="Juwita Nujhatussolihah">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <div class="teacher-content">
+                        <h3>Juwita Nujhatussolihah, S.Pd</h3>
+                        <p>Guru Pengajar</p>
+                    </div>
+                </div>
+                <div class="teacher-card" data-teacher="8">
+                    <div class="teacher-img">
+                        <img src="pa asep.jpg" alt="Asep Mukjijat">
+                        <i class="fas fa-user-edit"></i>
+                    </div>
+                    <div class="teacher-content">
+                        <h3>Asep Mukjijat, S.Pd</h3>
+                        <p>Guru Pengajar</p>
+                    </div>
+                </div>
+                <div class="teacher-card" data-teacher="9">
+                    <div class="teacher-img">
+                        <img src="pa dian.jpg" alt="Dian Hardiansah">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="teacher-content">
+                        <h3>Dian Hardiansah</h3>
+                        <p>Toolman</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools gradient-bg" id="tools">
+        <div class="container">
+            <h2>Alat-Alat Geomatika</h2>
+            <div class="tools-cta">
+                <!-- CTA placed immediately under the section heading, centered -->
+                <a class="tool-overview" href="tools.html">
+                    <div class="tool-overview-banner full-bleed">
+                        <div class="tool-content">
+                            <div class="overview-text">
+                                <p style="color:var(--primary-neon);font-weight:600;margin-bottom:0.6rem;">Klik untuk melihat halaman lengkap berisi 20 alat, deskripsi, langkah penggunaan, dan tips praktis. Halaman ini menampilkan foto alat, fungsi singkat, langkah penggunaan dasar, serta tips keselamatan dan pemeliharaan.</p>
+                            </div>
+                            <div class="overview-cta-wrap">
+                                <button class="btn overview-cta">Lihat Semua Alat</button>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Section - Diperbesar -->
+    <section class="activities gradient-bg" id="activities">
+        <div class="container">
+            <h2>Dokumentasi Kegiatan</h2>
+            <div class="activities-slider" aria-label="Dokumentasi Kegiatan">
+                <button class="slider-fullscreen" title="Fullscreen" aria-label="Toggle fullscreen">
+                    <i class="fas fa-expand"></i>
+                </button>
+                <!-- Visible arrow buttons removed per request; navigation is via mouse/touch swipe and keyboard arrows -->
+                <div class="slides-container">
+                    
+                    <!-- slides inserted programmatically by JS for brevity; fallback static slides provided below for no-JS case -->
+                    <noscript>
+                        <!-- static fallback: local images 1.jpg .. 20.jpg -->
+                        <!-- These should exist in the same folder as the HTML file or adjust paths accordingly -->
+                        
+                        <div class="activity-slide"><div class="activity-img"><img src="./1.jpg" alt="Kegiatan 1" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./2222.jpg" alt="Kegiatan 2" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./33.jpg" alt="Kegiatan 3" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./44.jpg" alt="Kegiatan 4" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./5.jpg" alt="Kegiatan 5" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./6.jpg" alt="Kegiatan 6" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./7.jpg" alt="Kegiatan 7" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./88.jpg" alt="Kegiatan 8" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./9.jpg" alt="Kegiatan 9" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./10.jpg" alt="Kegiatan 10" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./111.jpg" alt="Kegiatan 11" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./12.jpg" alt="Kegiatan 12" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./13.jpg" alt="Kegiatan 13" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./14.jpg" alt="Kegiatan 14" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./15.jpg" alt="Kegiatan 15" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./16.jpg" alt="Kegiatan 16" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./17.jpg" alt="Kegiatan 17" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./18.jpg" alt="Kegiatan 18" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./19.jpg" alt="Kegiatan 19" loading="lazy"></div></div>
+                        <div class="activity-slide"><div class="activity-img"><img src="./20.jpg" alt="Kegiatan 20" loading="lazy"></div></div>
+                    </noscript>
+                </div>
+                <div class="slider-dots" aria-hidden="true"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location gradient-bg" id="location">
+        <div class="container">
+            <h2>Lokasi Kami</h2>
+            <div class="location-content">
+                <p>SMKN 5 Bandung berlokasi di Jl. Bojong Koneng No.37A, Sukapada, Kec. Cibeunying Kidul, Kota Bandung, Jawa Barat 40191</p>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.906226377831!2d107.58366007499556!3d-6.902873067430596!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e68e5f3a9f0a0a5%3A0x5c0a4d5b8b4e4d5b!2sSMKN%205%20Bandung!5e0!3m2!1sid!2sid!4v1691234567890!5m2!1sid!2sid" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <div class="logo-img no-glow">
+                            <img src="logo.webp" alt="Logo SMKN 5 Bandung" />
+                        </div>
+                        <div class="logo-text">Geomatika SMKN 5</div>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">Beranda</a>
+                    <a href="#about">Tentang</a>
+                    <a href="#career">Karir</a>
+                    <a href="#teachers">Guru</a>
+                    <a href="#tools">Alat</a>
+                    <a href="#activities">Kegiatan</a>
+                    <a href="#location">Lokasi</a>
+                </div>
+                <a href="https://www.instagram.com/geomatikalima" class="instagram-link" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>@geomatikalima</span>
+                </a>
+                <a href="team.html" class="team-link" aria-label="Tim Pengembang Website">
+                    <p style="margin:0">&copy; Kelompok Pembuat Website Geomatika SMKN 5 Bandung. All rights reserved.</p>
+                </a>
+                    <p>⬆️⬆️ klik copyright untuk melihat tim pengembang</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Tool Modal -->
+    <div class="modal" id="toolModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="modalBody">
+                <!-- Konten modal akan dimuat di sini -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Teacher Modal -->
+    <div class="modal" id="teacherModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body" id="teacherModalBody">
+                <!-- Konten modal guru akan dimuat di sini -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Team Modal -->
+    <div class="team-modal" id="teamModal">
+        <div class="team-modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 style="text-align: center; margin-bottom: 20px;">Tim Pengembang Website</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Kayla Rasti</h3>
+                    <p class="member-role">Pembuat Website</p>
+                    <p class="member-motto">"no way i'm letting those years of struggle go to waste"</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Fatma Rizqya Rahayu</h3>
+                    <p class="member-role">Pencari Informasi Web</p>
+                    <p class="member-motto">"Never run back to what broke you"</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Keysa Destianti Putri</h3>
+                    <p class="member-role">Pencari Informasi Web</p>
+                    <p class="member-motto">"Believe you can and you're halfway there"</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Yoga Wiguna</h3>
+                    <p class="member-role">Pembuat Laporan</p>
+                    <p class="member-motto">"Dokumentasi yang baik adalah jendela ke masa depan"</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Abiya Restu</h3>
+                    <p class="member-role">Pembuat Laporan</p>
+                    <p class="member-motto">"Action speak louder than words"</p>
+                </div>
+                <div class="team-member">
+                    <div class="member-img">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Mochamad Farhan</h3>
+                    <p class="member-role">Pembuat Laporan</p>
+                    <p class="member-motto">"Detail kecil membuat perbedaan besar"</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+
+        // Tool Modal
+        const toolModal = document.getElementById('toolModal');
+        const modalBody = document.getElementById('modalBody');
+        const closeModal = document.querySelectorAll('.close-modal');
+
+        // Data untuk modal alat
+        const toolData = {
+            'total-station': {
+                title: 'Total Station',
+                description: 'Total Station adalah alat ukur sudut dan jarak elektronik yang digunakan dalam survei terestris. Alat ini menggabungkan fungsi theodolite untuk mengukur sudut dengan EDM (Electronic Distance Measurement) untuk mengukur jarak.',
+                function: 'Fungsi utama Total Station adalah untuk mengukur sudut horisontal, sudut vertikal, dan jarak secara simultan. Data yang diukur dapat langsung disimpan dalam memori internal atau perangkat eksternal.',
+                usage: '1. Setup alat di atas tripod dan sejajarkan dengan titik referensi\n2. Kalibrasi dan lakukan orientasi alat\n3. Arahkan ke target prisma dan tekan tombol pengukuran\n4. Data akan tercatat secara otomatis',
+                tips: 'Pastikan alat dalam kondisi kalibrasi yang baik, gunakan tripod yang stabil, dan lakukan pengukuran pada kondisi cuaca yang mendukung untuk hasil terbaik.'
+            },
+            'gps-geodetik': {
+                title: 'GPS Geodetik',
+                description: 'GPS Geodetik adalah sistem penentuan posisi global dengan akurasi tinggi yang digunakan untuk aplikasi survei dan pemetaan. Sistem ini menggunakan satelit untuk menentukan posisi dengan presisi hingga sentimeter.',
+                function: 'Fungsi utama GPS Geodetik adalah menentukan koordinat posisi di permukaan bumi dengan akurasi tinggi. Alat ini dapat digunakan untuk pemetaan, penentuan batas wilayah, dan monitoring deformasi tanah.',
+                usage: '1. Setup receiver GPS di atas titik yang akan diukur\n2. Pastikan receiver memiliki koneksi ke satelit yang cukup\n3. Lakukan pengukuran selama waktu yang ditentukan\n4. Proses data menggunakan software khusus',
+                tips: 'Gunakan waktu pengukuran yang cukup lama untuk akurasi yang lebih baik, hindari pengukuran di bawah pepohonan atau bangunan tinggi, dan lakukan pengukuran pada waktu dengan PDOP (Position Dilution of Precision) yang rendah.'
+            },
+            'drone': {
+                title: 'Drone Pemetaan',
+                description: 'Drone pemetaan adalah pesawat tanpa awak yang dilengkapi dengan kamera dan sensor untuk akuisisi data udara. Data yang diambil dapat diproses menjadi orthomosaic, model 3D, dan peta digital.',
+                function: 'Fungsi utama drone pemetaan adalah mengambil foto udara dengan overlap yang terkontrol untuk menghasilkan data yang dapat diproses secara fotogrametri. Drone dapat mencakup area yang luas dengan efisiensi waktu dan biaya.',
+                usage: '1. Rencanakan flight path menggunakan software perencanaan\n2. Lakukan pra-penerbangan check untuk memastikan kondisi drone\n3. Jalankan misi penerbangan autonom\n4. Unduh dan proses data menggunakan software fotogrametri',
+                tips: 'Periksa kondisi cuaca sebelum penerbangan, pastikan baterai cukup untuk seluruh misi, dan lakukan kalibrasi kamera secara berkala untuk hasil terbaik.'
+            },
+            'theodolite': {
+                title: 'Theodolite',
+                description: 'Theodolite adalah instrumen optik untuk mengukur sudut horisontal dan vertikal dalam survei. Meskipun sudah banyak digantikan oleh Total Station, theodolite masih digunakan dalam aplikasi tertentu.',
+                function: 'Fungsi utama theodolite adalah mengukur sudut horisontal dan vertikal dengan presisi tinggi. Alat ini digunakan dalam survei untuk menentukan posisi dan elevasi titik-titik di lapangan.',
+                usage: '1. Setup theodolite di atas tripod dan sejajarkan\n2. Arahkan teropong ke target pertama dan baca sudutnya\n3. Putar alat ke target berikutnya dan baca sudutnya\n4. Catat hasil pengukuran secara manual',
+                tips: 'Pastikan alat dalam kondisi terkalibrasi, gunakan tripod yang stabil, dan lakukan pengukuran berulang untuk meningkatkan akurasi.'
+            },
+            'waterpass': {
+                title: 'Waterpass',
+                description: 'Waterpass (atau leveling instrument) adalah alat untuk mengukur beda tinggi antara titik-titik dengan presisi tinggi. Alat ini menggunakan prinsip gelembung nivo untuk menentukan garis horisontal.',
+                function: 'Fungsi utama waterpass adalah menentukan beda tinggi antara titik-titik di lapangan. Pengukuran ini penting untuk pekerjaan konstruksi, pemetaan topografi, dan monitoring deformasi.',
+                usage: '1. Setup waterpass di antara dua titik yang akan diukur\n2. Baca rambu ukur di titik belakang (benchmark)\n3. Baca rambu ukur di titik depan\n4. Hitung beda tinggi dari kedua bacaan',
+                tips: 'Pastikan gelembung nivo tepat di tengah saat membaca, gunakan payung untuk menghindari efek refraksi, dan lakukan pengukuran bolak-balik untuk menghindari kesalahan sistematis.'
+            },
+            'gis-software': {
+                title: 'Software SIG',
+                description: 'Software Sistem Informasi Geografis (SIG) adalah perangkat lunak untuk mengelola, menganalisis, dan memvisualisasikan data spasial. Contoh software SIG termasuk ArcGIS, QGIS, dan ERDAS Imagine.',
+                function: 'Fungsi utama software SIG adalah melakukan analisis spasial, manajemen data geografis, dan pembuatan peta tematik. Software ini memungkinkan integrasi berbagai data spasial dan atribut.',
+                usage: '1. Impor data spasial (shapefile, raster, dll)\n2. Lakukan editing dan pembersihan data\n3. Jalankan analisis spasial yang diperlukan\n4. Buat layout peta dan ekspor hasil',
+                tips: 'Backup data secara berkala, gunakan sistem proyeksi yang tepat, dan manfaatkan plugin atau ekstensi untuk meningkatkan fungsionalitas software.'
+            }
+        };
+
+        // Event listener untuk card alat
+        document.querySelectorAll('.tool-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const toolId = card.getAttribute('data-tool');
+                const tool = toolData[toolId];
+                
+                if (tool) {
+                    modalBody.innerHTML = `
+                        <h2>${tool.title}</h2>
+                        <p><strong>Deskripsi:</strong> ${tool.description}</p>
+                        <p><strong>Fungsi:</strong> ${tool.function}</p>
+                        <p><strong>Langkah Penggunaan:</strong></p>
+                        <p>${tool.usage.replace(/\n/g, '<br>')}</p>
+                        <p><strong>Tips Akurasi:</strong> ${tool.tips}</p>
+                    `;
+                    
+                    toolModal.classList.add('active');
+                }
+            });
+        });
+
+        // Teacher Modal
+        const teacherModal = document.getElementById('teacherModal');
+        const teacherModalBody = document.getElementById('teacherModalBody');
+        const teacherCards = document.querySelectorAll('.teacher-card');
+
+        const teachersData = [
+            {
+                name: "Dadan Rusdan",
+                position: "Kepala Konsentrasi Geomatika",
+                specialization: "Teknik Geomatika",
+                education: "Teknik Bangunan IKIP Bandung ",
+                experience: "Mengajar dari tahun 2009 s.d sekarang",
+            },
+            {
+                name: "Osianni Pertiwi, M.Pd",
+                position: "Guru Pengajar",
+                specialization: "Geomatika",
+                education: "S1 Pendidikan Teknik Bangunan UPI, S2 Pengembangan Kurikulum dan Pembelajaran UPI",
+                experience: "6 tahun mengajar teknik geomatika, Ketua LSP 2024-2026",
+            },
+            {
+                name: "Kiki Rachmat Nugraha, S.Pd",
+                position: "Guru Pengajar",
+                specialization: "Teknik Geomatika",
+                education: "Teknik Bangunan IKIP Bandung ",
+                experience: "Mengajar di Jurusan Geomatika sejak 2015",
+            },
+            {
+                name: "Ria Oktriani, S.T",
+                position: "Guru Pengajar",
+                specialization: "Teknik Geomatika",
+                education: "Teknik Geodesi Universitas Winaya Mukti",
+                experience: "Konsultan Pemetaan 2006-2019, Mengajar 2019-sekarang",
+            },
+            {
+                name: "Aida Nur Haqiqi, S.Pd",
+                position: "Guru Pengajar",
+                specialization: "Teknik Geomatika",
+                education: "Pendidikan Geografi UPI",
+                experience: "Mengajar 2021-sekarang",
+            },
+            {
+                name: "Novriyanto, S.Pd",
+                position: "Guru Pengajar",
+                specialization: "Teknik Geomatika",
+                education: "Pendidikan Geografi UPI",
+                experience: "Konsultan Pemetaan 2018-2021, Mengajar 2021-sekarang",
+            },
+            {
+                name: "Imam Nurhidayat, S.Pd",
+                position: "Guru Pengajar",
+                specialization: "Teknik Geomatika",
+                education: "Teknik Bangunan IKIP Malang",
+                experience: "Mengajar 28 tahun 6 bulan di Jurusan Geomatika",
+            },
+            {
+                name: "Juwita Nujhatussolihah, S.Pd",
+                position: "Guru Pengajar",
+                specialization: "Teknik Geomatika",
+                education: "Pendidikan Teknik Bangunan UPI",
+                experience: "5 tahun pengalaman mengajar dan praktik pemetaan",
+            },
+            {
+                name: "Asep Mukjijat, S.Pd",
+                position: "Guru Pengajar",
+                specialization: "Teknik Geomatika",
+                education: "Pendidikan Teknik Sipil Bangunan, UNS Surakarta",
+                experience: "Mengajar di Jurusan Geomatika sejak 2018-sekarang",
+            },
+            {
+                name: "Dian Hardiansah",
+                position: "Toolman",
+                specialization: "Geomatika",
+                education: "SMK",
+                experience: "Toolman dari 2016",
+            }
+        ];
+
+        teacherCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const teacherIndex = parseInt(card.getAttribute('data-teacher'));
+                const teacher = teachersData[teacherIndex];
+
+                // try to reuse the same image shown on the card
+                const imgEl = card.querySelector('.teacher-img img');
+                const imgSrc = imgEl ? imgEl.src : '';
+                const imgAlt = imgEl ? imgEl.alt : teacher.name;
+
+                teacherModalBody.innerHTML = `
+                    <div class="teacher-detail-photo no-glow">
+                        ${imgSrc ? `<img src="${imgSrc}" alt="${imgAlt}" loading="lazy">` : '<div class="teacher-detail-img"><i class="fas fa-user"></i></div>'}
+                    </div>
+                    <h3>${teacher.name}</h3>
+                    <p><strong>Jabatan:</strong> ${teacher.position}</p>
+                    <p><strong>Bidang Keahlian:</strong> ${teacher.specialization}</p>
+                    <p><strong>Pendidikan:</strong> ${teacher.education}</p>
+                    <p><strong>Pengalaman:</strong> ${teacher.experience}</p>
+                `;
+
+                teacherModal.classList.add('active');
+            });
+        });
+
+        // Close modal
+        closeModal.forEach(closeBtn => {
+            closeBtn.addEventListener('click', () => {
+                toolModal.classList.remove('active');
+                teacherModal.classList.remove('active');
+                teamModal.classList.remove('active');
+            });
+        });
+
+        // Close modal ketika klik di luar konten
+        window.addEventListener('click', (e) => {
+            if (e.target === toolModal) {
+                toolModal.classList.remove('active');
+            }
+            if (e.target === teacherModal) {
+                teacherModal.classList.remove('active');
+            }
+            if (e.target === teamModal) {
+                teamModal.classList.remove('active');
+            }
+        });
+
+        // Team Modal (kept in markup for backward-compatibility, but we now open a separate page `team.html`)
+        const teamModal = document.getElementById('teamModal');
+
+        // Activities Slider - new implementation
+        (function() {
+            const slidesContainer = document.querySelector('.activities-slider .slides-container');
+            const dotsContainer = document.querySelector('.activities-slider .slider-dots');
+            const sliderEl = document.querySelector('.activities-slider');
+            if (!slidesContainer || !dotsContainer || !sliderEl) return; // abort if markup missing
+            const totalSlides = 20;
+            let currentSlide = 0;
+            let slideInterval = null;
+            let isDragging = false;
+            let startX = 0;
+
+            // generate slides using local images named 1.jpg .. 20.jpg (ordered by filename)
+            // special mapping for certain images (use alternative filenames)
+            const specialMap = {2: '2222', 3: '33', 4: '44', 8: '88', 11: '111'};
+            for (let i = 1; i <= totalSlides; i++) {
+                const slide = document.createElement('div');
+                slide.className = 'activity-slide';
+
+                const imgWrap = document.createElement('div');
+                imgWrap.className = 'activity-img';
+                const img = document.createElement('img');
+                img.alt = `Kegiatan ${i}`;
+                // use local images in the same folder as this HTML file; adjust path if your images are in a subfolder
+                const fileName = specialMap[i] ? specialMap[i] : String(i);
+                img.src = `./${fileName}.jpg`;
+                img.loading = 'lazy';
+                imgWrap.appendChild(img);
+
+                slide.appendChild(imgWrap);
+                slidesContainer.appendChild(slide);
+
+                // dots
+                const dot = document.createElement('div');
+                dot.className = 'dot' + (i === 1 ? ' active' : '');
+                dotsContainer.appendChild(dot);
+                (function(index){
+                    dot.addEventListener('click', () => {
+                        goToSlide(index);
+                    });
+                })(i-1);
+            }
+
+            const slides = slidesContainer.querySelectorAll('.activity-slide');
+            const dots = dotsContainer.querySelectorAll('.dot');
+
+            function goToSlide(index) {
+                currentSlide = (index + slides.length) % slides.length;
+                slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+                dots.forEach((d, idx) => d.classList.toggle('active', idx === currentSlide));
+            }
+
+            function nextSlide() { goToSlide(currentSlide + 1); }
+            function prevSlide() { goToSlide(currentSlide - 1); }
+
+            
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') nextSlide();
+                if (e.key === 'ArrowLeft') prevSlide();
+            });
+
+            
+            slidesContainer.addEventListener('pointerdown', (e) => {
+                isDragging = true;
+                startX = e.clientX;
+                slidesContainer.setPointerCapture(e.pointerId);
+            });
+
+            slidesContainer.addEventListener('pointermove', (e) => {
+                if (!isDragging) return;
+                const currentX = e.clientX;
+                const diff = currentX - startX;
+                if (Math.abs(diff) > 60) {
+                    if (diff > 0) prevSlide(); else nextSlide();
+                    isDragging = false;
+                }
+            });
+
+            slidesContainer.addEventListener('pointerup', () => { isDragging = false; });
+            slidesContainer.addEventListener('pointercancel', () => { isDragging = false; });
+
+            
+            slideInterval = setInterval(nextSlide, 5000);
+            sliderEl.addEventListener('mouseenter', () => clearInterval(slideInterval));
+            sliderEl.addEventListener('mouseleave', () => { slideInterval = setInterval(nextSlide, 5000); });
+
+            // initialize
+            goToSlide(0);
+
+            // Fullscreen toggle (uses Fullscreen API when available, falls back to CSS fullscreen class)
+            const fsBtn = sliderEl.querySelector('.slider-fullscreen');
+            if (fsBtn) {
+                fsBtn.addEventListener('click', () => {
+                    // if browser fullscreen is active on this element, exit
+                    if (document.fullscreenElement === sliderEl) {
+                        document.exitFullscreen();
+                        return;
+                    }
+
+                    // request fullscreen if supported, otherwise toggle CSS fullscreen
+                    if (sliderEl.requestFullscreen) {
+                        sliderEl.requestFullscreen().catch(() => {
+                            // if request fails (some browsers/contexts), fallback to CSS fullscreen
+                            sliderEl.classList.toggle('fullscreen');
+                        });
+                    } else {
+                        sliderEl.classList.toggle('fullscreen');
+                    }
+                });
+
+                // reflect fullscreen state in UI (icon) when native fullscreen changes
+                document.addEventListener('fullscreenchange', () => {
+                    const isFS = document.fullscreenElement === sliderEl;
+                    sliderEl.classList.toggle('fullscreen', isFS);
+                    fsBtn.innerHTML = isFS ? '<i class="fas fa-compress"></i>' : '<i class="fas fa-expand"></i>';
+                });
+
+                // ESC handling for CSS-fallback fullscreen
+                window.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && sliderEl.classList.contains('fullscreen') && !document.fullscreenElement) {
+                        sliderEl.classList.remove('fullscreen');
+                        fsBtn.innerHTML = '<i class="fas fa-expand"></i>';
+                    }
+                });
+            }
+        })();
+
+        
+
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.about-item, .skills-grid > div, .learning-card, .tech-card, .career-item, .tool-card, .timeline-item').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

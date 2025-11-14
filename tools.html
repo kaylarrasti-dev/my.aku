@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Alat-Alat Geomatika — Detail</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root{
+      --bg:#07120f;
+      --card:#0f1f18;
+      --accent:#4eff91;
+      --muted:#bfeed1;
+      --glass:rgba(78,255,145,0.06);
+      --neon-glow: 0 8px 30px rgba(78,255,145,0.06);
+    }
+
+    html,body{height:100%}
+    body{font-family:Arial,Helvetica,sans-serif;margin:0;background:linear-gradient(180deg,#03100d,#07120f);color:#eafaf0}
+    .container{width:92%;max-width:1200px;margin:36px auto}
+    header{display:flex;align-items:center;gap:18px;margin-bottom:24px}
+    header h1{font-size:1.6rem;margin:0;color:var(--accent)}
+    header a{color:var(--muted);text-decoration:none;font-size:0.95rem}
+
+    /* Responsive grid: keep 1 column on small, 2 columns on larger screens (consistent with previous layout request) */
+    .grid{display:grid;grid-template-columns:1fr;gap:22px}
+    @media(min-width:900px){
+      .grid{grid-template-columns:repeat(2,1fr);gap:24px}
+    }
+
+    /* Improved tool detail card styling */
+    .tool-detail{
+      background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.02));
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 14px 40px rgba(0,0,0,0.6);
+      border:1px solid rgba(78,255,145,0.06);
+      display:flex;
+      flex-direction:column;
+      transition:transform 0.28s ease,box-shadow 0.28s ease;
+      min-height:420px;
+      background-clip:padding-box;
+    }
+    .tool-detail:hover{transform:translateY(-6px);box-shadow:0 40px 100px rgba(0,0,0,0.75),var(--neon-glow)}
+
+    /* media area uses aspect-ratio for consistent images */
+    .tool-media{aspect-ratio:16/9;width:100%;overflow:hidden;background:linear-gradient(135deg,rgba(78,255,145,0.03),rgba(0,0,0,0.02));display:flex;align-items:center;justify-content:center}
+    .tool-media img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(0.98) saturate(1.05)}
+
+    .tool-body{padding:18px;display:flex;flex-direction:column;flex:1}
+    .tool-body h2{color:var(--accent);margin:0 0 8px;font-size:1.05rem}
+    .tool-body p{color:var(--muted);margin:8px 0}
+    .tool-body ol{color:var(--muted);margin:8px 0 12px 20px}
+    .back{display:inline-block;margin-top:12px;padding:8px 12px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);border-radius:8px}
+    .section-title{margin:16px 0 6px;color:var(--accent);font-weight:700}
+
+    /* remove unused/undefined ribbon variables and keep markup lean */
+    .tool-label{display:none}
+
+    /* responsive tweaks */
+    @media(max-width:899px){.tool-media{aspect-ratio:4/3}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Alat-Alat Geomatika — Halaman Lengkap</h1>
+      <nav style="margin-left:auto"><a href="Web Geomatika.html">← Kembali ke Halaman Utama</a></nav>
+    </header>
+
+    <p style="color:var(--muted)">Di bawah ini terdapat daftar 20 alat yang umum digunakan dalam pendidikan dan praktik geomatika, beserta deskripsi, fungsi, langkah penggunaan singkat, dan tips keselamatan/kalibrasi.</p>
+
+    <div class="grid">
+
+      <!-- 1 Handy Talky -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat1.jpg" alt="Handy Talky"></div>
+        <div class="tool-body">
+          <h2>1. Handy Talky (Motorola)</h2>
+          <p><strong>Deskripsi:</strong> Radio komunikasi portabel untuk koordinasi tim lapangan selama survei.</p>
+          <p><strong>Fungsi utama:</strong> Menyediakan komunikasi real-time antar anggota tim, mengurangi kebutuhan kembali ke base.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Periksa baterai dan frekuensi yang digunakan (pastikan legal).</li>
+            <li>Nyalakan dan set kanal yang sama untuk semua unit.</li>
+            <li>Gunakan push-to-talk saat berbicara, lepaskan untuk mendengar.</li>
+          </ol>
+          <p><strong>Tips:</strong> Simpan unit pada kondisi kering, gunakan earmic jika berada di area bising.</p>
+        </div>
+      </article>
+
+      <!-- 2 GPS Handheld Garmin 62S -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat2.jpg" alt="GPS Handheld"></div>
+        <div class="tool-body">
+          <h2>2. GPS Handheld — Garmin GPSmap 62S</h2>
+          <p><strong>Deskripsi:</strong> Penerima GNSS portabel untuk penentuan posisi titik lapangan.</p>
+          <p><strong>Fungsi:</strong> Menentukan koordinat WGS84/UTM untuk dokumentasi titik lapangan.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Nyalakan unit dan biarkan mencari satelit (ideal 2–5 menit).</li>
+            <li>Set proyeksi/ datum sesuai kebutuhan proyek.</li>
+            <li>Kumpulkan beberapa pengukuran di titik yang sama untuk stabilitas.</li>
+          </ol>
+          <p><strong>Tips:</strong> Hindari posisi di bawah pohon lebat atau di antara bangunan tinggi.</p>
+        </div>
+      </article>
+
+      <!-- 3 GPS Handheld Garmin 64S -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat3.jpg" alt="GPS Handheld 64S"></div>
+        <div class="tool-body">
+          <h2>3. GPS Handheld — Garmin GPSmap 64S</h2>
+          <p><strong>Deskripsi:</strong> Versi handheld GPS lain yang umum dipakai untuk survey lapangan sederhana.</p>
+          <p><strong>Fungsi:</strong> Pengumpulan titik posisi, waypoint, dan navigasi lapangan.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Atur format koordinat, simpan waypoint dengan nama jelas.</li>
+            <li>Ekspor data ke perangkat lunak SIG untuk pemrosesan.</li>
+          </ol>
+          <p><strong>Tips:</strong> Gunakan mode averaging jika tersedia untuk meningkatkan akurasi.</p>
+        </div>
+      </article>
+
+      <!-- 4 GNSS Receiver Trimble R8 -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat44.avif" alt="GNSS Receiver Trimble"></div>
+        <div class="tool-body">
+          <h2>4. GNSS Receiver — Trimble R8</h2>
+          <p><strong>Deskripsi:</strong> Receiver GNSS kelas surveyor untuk pengukuran RTK/PPK dengan akurasi tinggi.</p>
+          <p><strong>Fungsi:</strong> Menyediakan solusi posisi sentimeter melalui RTK/PPK.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Pasang antena pada tiang, sambungkan ke receiver.</li>
+            <li>Konfigurasi base/rover, set komunikasi modem atau NTRIP.</li>
+            <li>Lakukan inisialisasi hingga posisi converge.</li>
+          </ol>
+          <p><strong>Tips:</strong> Lakukan kalibrasi antena dan periksa log kualitas satelit (SNR).</p>
+        </div>
+      </article>
+
+      <!-- 5 GNSS Receiver Leica GS18 -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat5.jpg" alt="Leica GS18"></div>
+        <div class="tool-body">
+          <h2>5. GNSS Receiver — Leica GS18</h2>
+          <p><strong>Deskripsi:</strong> Receiver GNSS modern dengan kemampuan RTK dan sensor inersia untuk tilt compensation.</p>
+          <p><strong>Fungsi:</strong> Mengukur titik tanpa harus memastikan vertikal tiang secara sempurna (tilt-enabled).</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Kalibrasi IMU bila perlu, pilih mode tilt jika diinginkan.</li>
+            <li>Hubungkan ke base atau NTRIP untuk RTK real-time.</li>
+          </ol>
+          <p><strong>Tips:</strong> Pelajari koreksi tilt dan kompensasi tinggi antena untuk akurasi terbaik.</p>
+        </div>
+      </article>
+
+      <!-- 6 Drone Pemetaan DJI Phantom 4 RTK -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat6.jpg" alt="DJI Phantom 4 RTK"></div>
+        <div class="tool-body">
+          <h2>6. Drone Pemetaan — DJI Phantom 4 RTK</h2>
+          <p><strong>Deskripsi:</strong> Drone kecil dengan modul RTK untuk meningkatkan akurasi georeferensi foto udara.</p>
+          <p><strong>Fungsi:</strong> Akuisisi citra udara untuk fotogrametri dan pembuatan orthomosaic/model 3D.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Rencanakan misi (overlap, altitude) di software misi.</li>
+            <li>Periksa cuaca, baterai, dan izin terbang.</li>
+            <li>Lakukan penerbangan otomatis dan unduh foto RAW untuk pemrosesan.</li>
+          </ol>
+          <p><strong>Tips:</strong> Gunakan GCP/RTK untuk hasil georeferensi yang lebih akurat.</p>
+        </div>
+      </article>
+
+      <!-- 7 Drone DJI Matrice -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat7.jpg" alt="DJI Matrice"></div>
+        <div class="tool-body">
+          <h2>7. Drone Industri — DJI Matrice</h2>
+          <p><strong>Deskripsi:</strong> Platform drone kelas industri untuk sensor multispectral, LiDAR, atau kamera besar.</p>
+          <p><strong>Fungsi:</strong> Akuisisi data sensor berat untuk misi profesional seperti LiDAR aerial.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Pasangkan payload (LiDAR/multispectral) dan lakukan pra-check sensor.</li>
+            <li>Lakukan uji hover sebelum misi penuh.</li>
+          </ol>
+          <p><strong>Tips:</strong> Pastikan payload terpasang aman dan baterai cukup untuk misi.</p>
+        </div>
+      </article>
+
+      <!-- 8 LiDAR Scanner RIEGL -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat8.jpg" alt="LiDAR Scanner"></div>
+        <div class="tool-body">
+          <h2>8. LiDAR Scanner — RIEGL</h2>
+          <p><strong>Deskripsi:</strong> Sensor LiDAR untuk pemetaan 3D dengan kepadatan titik tinggi.</p>
+          <p><strong>Fungsi:</strong> Menghasilkan point cloud presisi untuk pemodelan permukaan, infrastruktur, dan vegetasi.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Kalibrasi sensor dan pastikan parameter scannning benar.</li>
+            <li>Lakukan scanning dari beberapa posisi untuk cakupan penuh.</li>
+          </ol>
+          <p><strong>Tips:</strong> Periksa noise dan gunakan filter post-processing untuk membersihkan point cloud.</p>
+        </div>
+      </article>
+
+      <!-- 9 Total Station Spectra -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat9.avif" alt="Total Station Spectra"></div>
+        <div class="tool-body">
+          <h2>9. Total Station — Spectra Focus 2"</h2>
+          <p><strong>Deskripsi:</strong> Instrumen elektronik untuk mengukur sudut dan jarak (EDM) secara presisi.</p>
+          <p><strong>Fungsi:</strong> Pengukuran topografi, pengaturan titik kontrol, dan staking out pada proyek konstruksi.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Setup dan level tripod, pasang instrument dan lakukan orientasi/backsight.</li>
+            <li>Targetkan prisma dan lakukan pengukuran jarak serta sudut.</li>
+          </ol>
+          <p><strong>Tips:</strong> Pastikan prisma bersih dan stabil, lakukan pengukuran berulang untuk validasi.</p>
+        </div>
+      </article>
+
+      <!-- 10 Total Station Geomax -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat10.jpg" alt="Geomax Total Station"></div>
+        <div class="tool-body">
+          <h2>10. Total Station — Geomax Zoom 10</h2>
+          <p><strong>Deskripsi:</strong> Total station dengan jangkauan optik yang baik dan fitur otomatis.</p>
+          <p><strong>Fungsi:</strong> Survey topografi dan monitoring perubahan posisi.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Level dan align instrument ke titik referensi, pilih mode pengukuran.</li>
+            <li>Simpan data dan ekspor ke perangkat lunak untuk analisis lebih lanjut.</li>
+          </ol>
+          <p><strong>Tips:</strong> Simpan konfigurasi proyek untuk mempermudah pengukuran berulang.</p>
+        </div>
+      </article>
+
+      <!-- 11 Total Station Nikon -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat11.webp" alt="Nikon Total Station"></div>
+        <div class="tool-body">
+          <h2>11. Total Station — Nikon NPL</h2>
+          <p><strong>Deskripsi:</strong> Total station merk Nikon yang biasa dipakai untuk aplikasi survei umum.</p>
+          <p><strong>Fungsi:</strong> Pengukuran sudut dan jarak untuk pembuatan peta dan pekerjaan konstruksi.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Level instrument, masukkan parameter pengukuran, dan targetkan prisma.</li>
+            <li>Catat dan verifikasi hasil pengukuran di lapangan.</li>
+          </ol>
+          <p><strong>Tips:</strong> Rutin lakukan kalibrasi dan pembersihan lensa optik.</p>
+        </div>
+      </article>
+
+      <!-- 12 Theodolit Wild -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat12.jpg" alt="Theodolit Wild"></div>
+        <div class="tool-body">
+          <h2>12. Theodolit — Wild T0</h2>
+          <p><strong>Deskripsi:</strong> Instrumen optik klasik untuk pengukuran sudut horisontal dan vertikal.</p>
+          <p><strong>Fungsi:</strong> Pengukuran sudut pada survei-tradisional, masih berguna untuk latihan dasar.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Level dan fokus alat, baca sudut menggunakan vernier/disk digital (jika ada).</li>
+            <li>Gunakan tripod stabil untuk mengurangi getaran.</li>
+          </ol>
+          <p><strong>Tips:</strong> Latih teknik pembacaan sudut untuk akurasi manual yang baik.</p>
+        </div>
+      </article>
+
+      <!-- 13 Theodolit Digital Sokkia -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat13.jpg" alt="Theodolit Digital"></div>
+        <div class="tool-body">
+          <h2>13. Theodolit Digital — Sokkia DT 610</h2>
+          <p><strong>Deskripsi:</strong> Theodolit dengan pembacaan digital untuk memudahkan pengukuran sudut akurat.</p>
+          <p><strong>Fungsi:</strong> Pengukuran sudut cepat dan akurat, input data digital untuk transfer.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Inisialisasi alat, set unit sudut (gon/deg).</li>
+            <li>Ambil beberapa pengukuran untuk validasi.</li>
+          </ol>
+          <p><strong>Tips:</strong> Pastikan baterai penuh saat melakukan banyak pengukuran di lapangan.</p>
+        </div>
+      </article>
+
+      <!-- 14 Waterpass Topcon -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat14.png" alt="Waterpass Topcon"></div>
+        <div class="tool-body">
+          <h2>14. Waterpass — Topcon AT-B 4R</h2>
+          <p><strong>Deskripsi:</strong> Instrumen leveling untuk mengukur beda tinggi antar titik.</p>
+          <p><strong>Fungsi:</strong> Pengukuran beda elevasi untuk konstruksi dan survei topografi.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Levelkan waterpass, baca rambu ukur di titik belakang dan depan.</li>
+            <li>Hitung selisih elevasi berdasarkan bacaan.</li>
+          </ol>
+          <p><strong>Tips:</strong> Gunakan tripod stabil dan lindungi dari cahaya matahari langsung saat membaca.</p>
+        </div>
+      </article>
+
+      <!-- 15 Waterpass Sokkia B40 -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat15.jpg" alt="Sokkia B40"></div>
+        <div class="tool-body">
+          <h2>15. Waterpass — Sokkia B40</h2>
+          <p><strong>Deskripsi:</strong> Waterpass portable untuk leveling presisi.</p>
+          <p><strong>Fungsi:</strong> Menentukan beda tinggi yang diperlukan untuk pekerjaan konstruksi dan survei.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Kalibrasi gelembung dan baca rambu ukur secara konsisten.</li>
+          </ol>
+          <p><strong>Tips:</strong> Simpan dalam case pelindung untuk mengurangi risiko kerusakan.</p>
+        </div>
+      </article>
+
+      <!-- 16 Terrestrial Laser Scanner FARO -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat16.jpg" alt="FARO TLS"></div>
+        <div class="tool-body">
+          <h2>16. Terrestrial Laser Scanner — FARO</h2>
+          <p><strong>Deskripsi:</strong> Scanner 3D untuk menangkap detail objek dan situs dalam bentuk point cloud.</p>
+          <p><strong>Fungsi:</strong> Dokumentasi as-built, restorasi bangunan, dan analisis struktur 3D.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Scan dari beberapa posisi, gunakan target referensi jika perlu untuk registrasi.</li>
+          </ol>
+          <p><strong>Tips:</strong> Jaga jarak aman terhadap area yang dipindai dan perhatikan reflektivitas permukaan.</p>
+        </div>
+      </article>
+
+      <!-- 17 RTK Base Station Trimble -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat17.jpg" alt="RTK Base Station"></div>
+        <div class="tool-body">
+          <h2>17. RTK Base Station — Trimble</h2>
+          <p><strong>Deskripsi:</strong> Base station untuk penyediaan koreksi RTK kepada rover.</p>
+          <p><strong>Fungsi:</strong> Menghasilkan koreksi real-time untuk akurasi sentimeter pada rover GNSS.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Tempatkan base di titik yang diketahui atau stabil, aktifkan transmisi koreksi.</li>
+            <li>Pastikan link komunikasi antenna-modem dalam kondisi baik.</li>
+          </ol>
+          <p><strong>Tips:</strong> Monitor kualitas koreksi dan uptime base station.</p>
+        </div>
+      </article>
+
+      <!-- 18 GIS Workstation -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat18.webp" alt="GIS Workstation"></div>
+        <div class="tool-body">
+          <h2>18. GIS Workstation (PC & Software)</h2>
+          <p><strong>Deskripsi:</strong> Komputer workstation dengan perangkat lunak SIG untuk pemrosesan data spasial.</p>
+          <p><strong>Fungsi:</strong> Pengolahan data GNSS/Total Station, pembuatan peta, analisis spasial, dan produksi peta akhir.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Impor data lapangan, lakukan pembersihan data (filter, transformasi).</li>
+            <li>Lakukan analisis dan ekspor produk peta sesuai kebutuhan.</li>
+          </ol>
+          <p><strong>Tips:</strong> Backup proyek, gunakan proyeksi yang konsisten.</p>
+        </div>
+      </article>
+
+      <!-- 19 GIS Software ArcGIS/QGIS -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat19.avif" alt="GIS Software"></div>
+        <div class="tool-body">
+          <h2>19. Software SIG — ArcGIS / QGIS</h2>
+          <p><strong>Deskripsi:</strong> Perangkat lunak untuk analisis, visualisasi, dan manajemen data spasial.</p>
+          <p><strong>Fungsi:</strong> Analisis spasial, geoprocessing, pembuatan map layout, dan manajemen database spasial.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Pelajari alur kerja (import → clean → analyze → layout).</li>
+            <li>Gunakan plugin dan skrip untuk otomatisasi tugas berulang.</li>
+          </ol>
+          <p><strong>Tips:</strong> Dokumentasikan metadata dan gunakan sistem versioning untuk data penting.</p>
+        </div>
+      </article>
+
+      <!-- 20 Topcon Total Station (added as the 20th item) -->
+      <article class="tool-detail">
+        <div class="tool-media"><img loading="lazy" src="alat20.webp" alt="Topcon Total Station"></div>
+        <div class="tool-body">
+          <h2>20. Total Station — Topcon</h2>
+          <p><strong>Deskripsi:</strong> Total station dari Topcon yang banyak dipakai di proyek konstruksi dan survei.</p>
+          <p><strong>Fungsi:</strong> Pengukuran sudut dan jarak presisi dengan kemampuan penyimpanan data dan konektivitas.</p>
+          <p class="section-title">Langkah penggunaan</p>
+          <ol>
+            <li>Level dan kalibrasi instrument; set project dan units.</li>
+            <li>Gunakan prism atau mode reflectorless sesuai kebutuhan pengukuran.</li>
+          </ol>
+          <p><strong>Tips:</strong> Periksa firmware dan simpan data proyek secara berkala ke media eksternal.</p>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</body>
+</html>
